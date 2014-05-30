@@ -1,0 +1,20 @@
+%h2 Projects
+
+=form_for @project do |f|
+  = f.label :name
+  = f.text_field :name
+
+  = f.label :description
+  = f.text_field :description
+
+  = f.label :url
+  =f.text_field :url
+
+  %div.action
+    =f.submit "Add Project"
+
+-@projects.each do |project|
+  %div
+    %ul= project.name
+    %ul= project.description
+    %ul= project.url
