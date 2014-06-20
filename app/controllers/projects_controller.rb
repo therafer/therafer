@@ -13,7 +13,25 @@ class ProjectsController < ApplicationController
     end
   end
 
-  private
+  def edit
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    @project = Project.update_attributes(project_params)
+
+    redirect_to projects_path
+  end
+
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+
+    redirect_to projects_path
+  end
+
+private
 
   def project_params
     params.require(:project).permit(
